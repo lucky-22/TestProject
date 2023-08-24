@@ -3,7 +3,7 @@ import { NativeEventEmitter, NativeModules, Button, Text, View } from "react-nat
 
 const App = () => {
   const [location, setLocation] = useState(null);
-  console.log('location: ', location);
+  console.log("Location module");
   const { LocationModule } = NativeModules;
   const locationEventEmitter = new NativeEventEmitter(LocationModule);
   const [click , setClick] = useState(0)
