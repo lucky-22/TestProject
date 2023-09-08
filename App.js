@@ -6,7 +6,7 @@ const App = () => {
   console.log("Location module");
   const { LocationModule } = NativeModules;
   const locationEventEmitter = new NativeEventEmitter(LocationModule);
-  const [click , setClick] = useState(0)
+  const [click, setClick] = useState(0)
 
   useEffect(() => {
     const locationUpdateListener = locationEventEmitter.addListener(
@@ -25,18 +25,18 @@ const App = () => {
   const getCurrentLocation = () => {
 
     LocationModule.startLocationUpdates()
-    setClick(preV => preV+1)
+    setClick(preV => preV + 1)
 
   }
 
   return (
     <View>
-      <Button title="Start Location Updates" onPress={() => getCurrentLocation() } />
+      <Button title="Start Location Updates" onPress={() => getCurrentLocation()} />
       {location && (
         <View>
           <Text>Latitude: {location.latitude}</Text>
           <Text>Longitude: {location.longitude}</Text>
-          <Text>Longitude: {location.accuracy}</Text>
+          <Text>Accuracy: {location.accuracy}</Text>
 
         </View>
       )}
